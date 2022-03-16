@@ -17,7 +17,7 @@ Public Class Filechooser
     Public SkinFolder As String = ""
     Public xmlelements As String() = {"posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "textoffsetx", "textoffsety", "radiowidth", "radioheight", "radioposx", "radioposy", "textwidth", "size", "itemgap", "spinwidth", "spinheight"}
     Public xmlelementsBorder As String() = {"border", "bordersize"}
-    Public xmlelementsTexture As String() = {"texture", "texturefocus", "texturenofocus", "texturebg", "bordertexture", "value", "icon", "thumb", "alttexturefocus", "alttexturenofocus", "texturesliderbackground", "texturesliderbar", "texturesliderbarfocus", "textureslidernib", "textureslidernibfocus", "textureup", "textureupfocus", "texturedown", "texturedownfocus", "textureradioonfocus", "textureradioofffocus", "textureradioonnofocus", "textureradiooffnofocus", "midtexture", "righttexture", "lefttexture"}
+    Public xmlelementsTexture As String() = {"texture", "texturefocus", "texturenofocus", "texturebg", "bordertexture", "value", "icon", "thumb", "alttexturefocus", "alttexturenofocus", "texturesliderbackground", "texturesliderbar", "texturesliderbarfocus", "textureslidernib", "textureslidernibfocus", "textureup", "textureupfocus", "texturedown", "texturedownfocus", "textureradioon", "textureradioonfocus", "textureradiooff", "textureradioofffocus", "textureradioonnofocus", "textureradiooffnofocus", "midtexture", "righttexture", "lefttexture"}
     Public xmlelementsBrackets As String() = {"visible", "enable", "usealttexture", "selected"}
     Public xmlattributes As String(,)
     Public doc As New XmlDocument()
@@ -577,9 +577,11 @@ Public Class Filechooser
     End Sub
 
     Sub CheckValues(ByVal FileName As String)
-        CheckChildren("//control[@type='button']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "colordiffuse", "texturefocus", "include", "animation", "texturenofocus", "label", "font", "textcolor", "disabledcolor", "shadowcolor", "align", "aligny", "textoffsetx", "textoffsety", "pulseonselect", "onclick", "onfocus", "onunfocus", "onup", "onleft", "onright", "ondown", "onback", "textwidth", "focusedcolor", "invalidcolor", "angle", "hitrect", "enable", "depth". "wrapmultiline"})
-        CheckChildren("//control[@type='radiobutton']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "colordiffuse", "texturefocus", "include", "animation", "texturenofocus", "label", "selected", "font", "textcolor", "disabledcolor", "selectedcolor", "shadowcolor", "align", "aligny", "textoffsetx", "textoffsety", "pulseonselect", "onclick", "onfocus", "onunfocus", "onup", "onleft", "onright", "ondown", "onback", "textwidth", "focusedcolor", "angle", "hitrect", "enable", "textureradioonfocus", "textureradioofffocus", "textureradioonnofocus", "textureradiooffnofocus", "textureradioon", "textureradiooff", "radioposx", "radioposy", "radiowidth", "radioheight"})
-        CheckChildren("//control[@type='togglebutton']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "colordiffuse", "texturefocus", "alttexturefocus", "alttexturenofocus", "altclick", "include", "animation", "texturenofocus", "label", "altlabel", "usealttexture", "font", "textcolor", "disabledcolor", "shadowcolor", "align", "aligny", "textoffsetx", "textoffsety", "pulseonselect", "onclick", "onfocus", "onunfocus", "onup", "onleft", "onright", "ondown", "onback", "textwidth", "focusedcolor", "subtype", "hitrect", "enable"})
+        CheckChildren("//control[@type='button']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "colordiffuse", "texturefocus", "include", "animation", "texturenofocus", "label", "font", "textcolor", "disabledcolor", "shadowcolor", "align", "aligny", "textoffsetx", "textoffsety", "pulseonselect", "onclick", "onfocus", "onunfocus", "onup", "onleft", "onright", "ondown", "onback", "textwidth", "focusedcolor", "invalidcolor", "angle", "hitrect", "enable", "depth", "wrapmultiline"})
+        CheckChildren("//control[@type='radiobutton']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "colordiffuse", "texturefocus", "include", "animation", "texturenofocus", "label", "label2", "selected", "font", "textcolor", "disabledcolor", "selectedcolor", "shadowcolor", "align", "aligny", "textoffsetx", "textoffsety", "pulseonselect", "onclick", "onfocus", "onunfocus", "onup", "onleft", "onright", "ondown", "onback", "textwidth", "focusedcolor", "angle", "hitrect", "enable", "textureradioonfocus", "textureradioofffocus", "textureradioonnofocus", "textureradiooffnofocus", "textureradioon", "textureradiooff", "radioposx", "radioposy", "radiowidth", "radioheight"})
+        CheckChildren("//control[@type='togglebutton']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "colordiffuse", "texturefocus", "alttexturefocus", "alttexturenofocus", "altclick", "include", "animation", "texturenofocus", "label", "altlabel", "usealttexture", "font", "textcolor", "disabledcolor", "shadowcolor", "align", "aligny", "textoffsetx", "textoffsety", "pulseonselect", "onclick", "onfocus", "onunfocus", "onup", "onleft", "onright", "ondown", "onback", "textwidth", "focusedcolor", "subtype", "hitrect", "enable", "wrapmultiline"})
+        CheckChildren("//control[@type='colorbutton']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "colorwidth", "colorheight", "texturecolormask", "texturecolordisabledmask", "colorbox", "colorposx", "colorposy", "colordiffuse", "texturefocus", "include", "animation", "texturenofocus", "label", "font", "textcolor", "disabledcolor", "shadowcolor", "align", "aligny", "textoffsetx", "textoffsety", "pulseonselect", "onclick", "onfocus", "onunfocus", "onup", "onleft", "onright", "ondown", "onback", "textwidth", "focusedcolor", "subtype", "hitrect", "enable", "wrapmultiline"})
+        CheckChildren("//control[@type='ranges']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "texturebg", "lefttexture", "include", "animation", "righttexture", "midtexture", "info"})
         CheckChildren("//control[@type='label']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "align", "aligny", "include", "animation", "scroll", "scrollout", "info", "number", "angle", "haspath", "label", "textcolor", "selectedcolor", "font", "shadowcolor", "disabledcolor", "pauseatend", "wrapmultiline", "scrollspeed", "scrollsuffix", "textoffsetx", "textoffsety"})
         CheckChildren("//control[@type='textbox']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "align", "aligny", "include", "animation", "autoscroll", "label", "info", "font", "textcolor", "selectedcolor", "shadowcolor", "pagecontrol", "scrolltime"})
         CheckChildren("//control[@type='edit']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "colordiffuse", "align", "aligny", "include", "animation", "label", "hinttext", "font", "textoffsetx", "textoffsety", "pulseonselect", "textcolor", "disabledcolor", "invalidcolor", "focusedcolor", "shadowcolor", "texturefocus", "texturenofocus", "onclick", "onfocus", "onunfocus", "onup", "onleft", "onright", "ondown", "onback", "textwidth", "hitrect", "enable"})
@@ -587,6 +589,9 @@ Public Class Filechooser
         CheckChildren("//control[@type='multiimage']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "align", "aligny", "include", "animation", "aspectratio", "fadetime", "colordiffuse", "imagepath", "timeperimage", "loop", "info", "randomize", "pauseatend"})
         CheckChildren("//control[@type='scrollbar']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "texturesliderbackground", "texturesliderbar", "include", "animation", "texturesliderbarfocus", "textureslidernib", "textureslidernibfocus", "pulseonselect", "orientation", "showonepage", "pagecontrol", "onclick", "onfocus", "onunfocus", "onup", "onleft", "onright", "ondown", "onback"})
         CheckChildren("//control[@type='progress']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "texturebg", "lefttexture", "include", "animation", "colordiffuse", "righttexture", "overlaytexture", "midtexture", "info", "reveal", "info2"})
+        CheckChildren("//control[@type='epggrid']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "timeblocks", "rulerunit", "rulerdatelayout", "rulerlayout", "progresstexture", "channellayout", "focusedchannellayout", "itemlayout", "focusedlayout", "orientation"})
+        CheckChildren("//control[@type='gamewindow']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible", "videofilter", "stretchmode", "rotation"})
+        CheckChildren("//control[@type='gamecontroller']/*", {"description", "camera", "posx", "posy", "top", "bottom", "left", "right", "centertop", "centerbottom", "centerleft", "centerright", "width", "height", "visible"})
         CheckChildren("//content/*", {"item", "include"})
         '     MoveNodeToBottom("animation")
         '    MoveNodeToBottom("visible")
@@ -641,6 +646,7 @@ Public Class Filechooser
         CheckNodeValue("subtype", {"page", "int", "float", "text"})
         CheckNodeValue("action", {"volume", "seek"})
         CheckNodeValue("scroll", {"false", "true", "yes", "no"})
+        CheckNodeValue("wrapmultiline", {"false", "true", "yes", "no"})
         CheckNodeValue("randomize", {"false", "true", "yes", "no"})
         CheckNodeValue("scrollout", {"false", "true", "yes", "no"})
         CheckNodeValue("pulseonselect", {"false", "true", "yes", "no"})
@@ -654,6 +660,7 @@ Public Class Filechooser
         CheckAttributes("aligny", {})
         CheckAttributes("posx", {})
         CheckAttributes("posy", {})
+        CheckAttributes("wrapmultiline", {})
         CheckAttributes("height", {"min", "max"})
         CheckAttributes("width", {"min", "max"})
         CheckAttributes("camera", {"x", "y"})
@@ -671,8 +678,8 @@ Public Class Filechooser
         CheckAttributes("onfocus", {"condition"})
         CheckAttributes("onunfocus", {"condition"})
         CheckAttributes("property", {"name", "fallback"})
-        CheckAttributes("focusedlayout", {"height", "width", "condition"})
-        CheckAttributes("itemlayout", {"height", "width", "condition"})
+        CheckAttributes("focusedlayout", {"height", "width", "condition", "infoupdate"})
+        CheckAttributes("itemlayout", {"height", "width", "condition", "infoupdate"})
         CheckAttributes("item", {"id"})
         CheckAttributes("control", {"id", "type"})
         CheckAttributes("animation", {"start", "end", "effect", "tween", "easing", "time", "condition", "reversible", "type", "center", "delay", "pulse", "loop", "acceleration"})
@@ -757,6 +764,10 @@ Public Class Filechooser
         elementlist = doc.SelectNodes("//focusedlayout | //itemlayout | //channellayout | //focusedchannellayout | //rulerlayout")
         For i = 0 To elementlist.Count - 1
             convertString(elementlist(i), {"width", "height"})
+        Next
+        elementlist = doc.SelectNodes("//focusedlayout | //itemlayout")
+        For i = 0 To elementlist.Count - 1
+            convertString(elementlist(i), {"infoupdate"})
         Next
         elementlist = doc.SelectNodes("//hitrect | //camera")
         For i = 0 To elementlist.Count - 1
